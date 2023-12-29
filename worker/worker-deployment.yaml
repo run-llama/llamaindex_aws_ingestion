@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: mq-worker-deployment
+ labels:
+   app: mq-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mq-worker
+  template:
+    metadata:
+      labels:
+        app: mq-worker
+    spec:
+     containers:
+     - name: mq-worker
+       image: lloganm/worker:1.4
+       env:
+       - name: WEAVIATE_API_KEY
+         value: <you api key>
+       - name: WEAVIATE_URL
+         value: <you weaviate url>
+       - name: RABBITMQ_URL
+         value: <your rabbitmq url>
+       - name: RABBITMQ_USER
+         value: guest
+       - name: RABBITMQ_PASSWORD
+         value: guest
+       - name: TEI_URL
+         value: <your TEI url>
+       ports:
+       - containerPort: 8000
+       resources:       
+         requests:
+           memory: 4Gi
+           cpu: "0.25"

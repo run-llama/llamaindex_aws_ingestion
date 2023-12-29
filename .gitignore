@@ -1,0 +1,4 @@
+*.zip
+__pycache__
+pika*
+venv

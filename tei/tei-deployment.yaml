@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: tei-deployment
+ labels:
+   app: tei-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tei-app
+  template:
+    metadata:
+      labels:
+        app: tei-app
+    spec:
+     containers:
+     - name: tei-app
+       image: ghcr.io/huggingface/text-embeddings-inference:86-0.6
+       ports:
+       - containerPort: 80
+       args: ["--model-id", "BAAI/bge-large-en-v1.5", "--revision", "refs/pr/5"]
