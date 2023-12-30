@@ -2,6 +2,8 @@
 
 This repository contains the code needed to setup and configure a complete ingestion and retrieval API, deployed to amazon AWS.
 
+This will give a starting point for scaling your data ingestion to handle large volumes of data.
+
 The following tech stack is used:
 - AWS Lambda for ingestion and retrieval with LlamaIndex
 - RabbitMQ for queuing ingestion jobs
@@ -13,13 +15,18 @@ The following tech stack is used:
 First, ensure you have an AWS account. Ensure you have some quota room for G5 EC2 nodes.
 
 Once you have an account, the following dependencies are needed:
-- [awscli]()
-- [eksctl]()
-- [kubectl]()
-- [krew]()
-- [RabbitMQ krew package]()
-- [Docker]()
-
+1. [AWS account signup](https://portal.aws.amazon.com/billing/signup#/start/email) 
+2. [Install AWS CLI](https://docs.aws.amazon.com/eks/latest/userguide/setting-up.html)
+  - Used to authenticate your AWS account for CLI tools
+3. [Install eksctl](https://eksctl.io/installation/)
+  - Used to create `EKS` clusters easily
+4. [Install kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
+  - Used to configure and debug deployments, pods, services, etc.
+5. [Install krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
+  - Used to install extra tools to use with `kubectl`
+6. Install rabbitmq operator plugin with krew — `kubectl krew install rabbitmq`
+  - Used to easily deploy rabbitmq to a cluster and expose the proper services
+7. [Install Docker](https://www.docker.com/products/docker-desktop/)
 
 ### 1. Deploying Text Embedding Inteface
 
@@ -121,7 +128,7 @@ body = {
 }
 
 # use the URL of our lambda function here
-response = requests.post("https://vguwrj5wc4wsd5lhgbgn37itay0lmkls.lambda-url.us-east-1.on.aws", json=body)
+response = requests.post("https://vguwrj5wc4wsd5lhgbgn37itay0lmkls.lambda-url.us-east-1.on.aws/", json=body)
 print(response.text)
 ```
 
