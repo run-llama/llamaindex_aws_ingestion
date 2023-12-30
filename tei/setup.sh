@@ -10,4 +10,6 @@ sleep 5
 
 kubectl create -f ./tei-service.yaml
 
-echo "Embeddings URL is: $(kubectl get svc tei-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
+sleep 5
+
+echo "Embeddings URL is: http://$(kubectl get svc tei-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
