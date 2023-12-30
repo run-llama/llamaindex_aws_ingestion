@@ -2,7 +2,7 @@
 
 This repository contains the code needed to setup and configure a complete ingestion and retrieval API, deployed to amazon AWS.
 
-This will give a starting point for scaling your data ingestion to handle large volumes of data.
+This will give a starting point for scaling your data ingestion to handle large volumes of data, as well as learn a bit more about AWS along the way.
 
 The following tech stack is used:
 - AWS Lambda for ingestion and retrieval with LlamaIndex
