@@ -22,11 +22,7 @@ Once you have an account, the following dependencies are needed:
     - Used to create `EKS` clusters easily
 4. [Install kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
     - Used to configure and debug deployments, pods, services, etc.
-5. [Install krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
-    - Used to install extra tools to use with `kubectl`
-6. Install rabbitmq operator plugin with krew — `kubectl krew install rabbitmq`
-    - Used to easily deploy rabbitmq to a cluster and expose the proper services
-7. [Install Docker](https://www.docker.com/products/docker-desktop/)
+5. [Install Docker](https://www.docker.com/products/docker-desktop/)
 
 ### 1. Deploying Text Embedding Inteface
 
